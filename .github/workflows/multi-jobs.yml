@@ -3,7 +3,7 @@ name: sec WF
 on: push
 
 jobs:
-    first_job:
+    build_job:
       runs-on: ubuntu-latest
       steps:
         - name: chckout repo
@@ -20,3 +20,14 @@ jobs:
           with:
             name: dragon-file
             path: dragon.txt
+
+    test-job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: download artifact
+          uses: actions/download-artifact@v3
+          with:
+              name: dragon-file
+
+        - name: Test file exists
+          run: grep -i "dragon" dragon.txt
