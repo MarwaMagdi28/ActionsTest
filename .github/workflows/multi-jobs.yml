@@ -1,0 +1,22 @@
+name: sec WF
+
+on: push
+
+jobs:
+    first_job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: chckout repo
+          uses: actions/checkout@v4
+          
+        - name: install dragon
+          run: sudo apt-get install cowsay -y
+
+        - name: Exec cowsay CMD
+          run: cowsay -f dragon "Run for cover,, I am a dragon ..." >> dragon.txt
+        
+        - name: upload artifacts
+          uses: actions/upload-artfact@v3
+          with:
+            name: dragon-file
+            path: dragon.txt
