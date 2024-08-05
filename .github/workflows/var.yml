@@ -10,7 +10,7 @@ jobs:
 
         steps:
             - name: docker build
-              run:  echo docker build -t $container_registery/${{ docker_username }}/$image_name:latest
+              run:  echo docker build -t $container_registery/${{ vars.docker_username }}/$image_name:latest
 
             - name: docker login
               run:  docker login --username=${{ vars.docker_username }} --password=${{ secrets.docker_password }}
