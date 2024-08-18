@@ -1,4 +1,4 @@
-name: exploring variables
+name: Container regitery
 on: push
 env:
     container_registery: docker.io
