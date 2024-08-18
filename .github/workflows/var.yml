@@ -1,4 +1,4 @@
-name: Container regitery
+name: Container registery
 on: push
 env:
     container_registery: docker.io
